@@ -1,26 +1,29 @@
-const form = document.getElementById('formSustentavel');
+let pontos = 0;
+
+const botoes = document.querySelectorAll('.acao');
 const resultado = document.getElementById('resultado');
+const reiniciar = document.getElementById('reiniciar');
 
-form.addEventListener('submit', function(e) {
-    e.preventDefault();
+botoes.forEach(botao => {
+    botao.addEventListener('click', () => {
+        const valor = parseInt(botao.getAttribute('data-points'));
+        pontos += valor;
 
-    const agua = parseFloat(document.getElementById('agua').value);
-    const fertilizantes = parseFloat(document.getElementById('fertilizantes').value);
-    const defensivos = parseFloat(document.getElementById('defensivos').value);
+        if (pontos < 0) pontos = 0;
 
-    let indice = 100 - (agua * 0.3 + fertilizantes * 0.4 + defensivos * 0.3);
-    if (indice < 0) indice = 0;
-    if (indice > 100) indice = 100;
-    indice = indice.toFixed(2);
+        resultado.textContent = `Pontuação: ${pontos}`;
 
-    let mensagem = '';
-    if (indice >= 80) {
-        mensagem = 'Excelente! Continue com práticas sustentáveis.';
-    } else if (indice >= 50) {
-        mensagem = 'Bom, mas reduza fertilizantes e defensivos.';
-    } else {
-        mensagem = 'Alerta! Reduza insumos e adote manejo sustentável.';
-    }
+        if (pontos >= 30) {
+            resultado.textContent = `🎉 Produção Sustentável! Pontos: ${pontos}`;
+        } else if (pontos >= 15) {
+            resultado.textContent = `🙂 Produção Razoável. Pontos: ${pontos}`;
+        } else {
+            resultado.textContent = `⚠️ Alto impacto ambiental. Pontos: ${pontos}`;
+        }
+    });
+});
 
-    resultado.innerHTML = `Índice de Sustentabilidade: ${indice}/100<br>${mensagem}`;
+reiniciar.addEventListener('click', () => {
+    pontos = 0;
+    resultado.textContent = '';
 });

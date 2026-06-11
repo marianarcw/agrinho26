@@ -5,49 +5,58 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .container {
-    background-color: #ffffff;
-    padding: 30px;
+    background-color: #fff;
+    padding: 25px;
     border-radius: 10px;
+    text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     width: 350px;
-    text-align: center;
 }
 
 h1 {
     color: #2d6a4f;
 }
 
-label {
-    display: block;
-    margin-top: 10px;
-}
-
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+.game-board {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #40916c;
-    color: white;
+    padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
-button:hover {
+.acao {
+    background-color: #40916c;
+    color: white;
+}
+
+.acao:hover {
     background-color: #2d6a4f;
 }
 
 #resultado {
-    margin-top: 20px;
+    margin-top: 15px;
     font-weight: bold;
+    font-size: 18px;
+}
+
+#reiniciar {
+    margin-top: 15px;
+    background-color: #ff595e;
+    color: white;
+}
+
+#reiniciar:hover {
+    background-color: #d90429;
 }
