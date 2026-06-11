@@ -2,23 +2,23 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Linha do Tempo Sustentável</title>
+    <title>Agro Forte - Futuro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Linha do Tempo de Produção Sustentável 🌱</h1>
-        <div class="timeline">
-            <button id="prev">⬅ Anterior</button>
+        <h1>Agro Forte 🌱</h1>
+        <p>Escolha práticas agrícolas sustentáveis e veja seu impacto!</p>
 
-            <div class="etapa">
-                <h2 id="titulo">Plantio</h2>
-                <img id="imagem" src="imagens/plantio.jpg" alt="Plantio">
-                <p id="descricao">Preparação do solo e plantio de sementes de forma sustentável.</p>
-            </div>
-
-            <button id="next">Próxima ➡</button>
+        <div class="game-board">
+            <button class="acao" data-points="10">💧 Irrigação Inteligente</button>
+            <button class="acao" data-points="10">🌳 Plantio de Árvores</button>
+            <button class="acao" data-points="-10">🧪 Uso Excessivo de Agrotóxicos</button>
         </div>
+
+        <div id="resultado">Pontuação: 0</div>
+
+        <button id="reiniciar">Reiniciar</button>
     </div>
 
     <script src="script.js"></script>

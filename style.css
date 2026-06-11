@@ -1,53 +1,72 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #eaf2e3;
+    background: linear-gradient(to bottom, #d9f0d9, #a8e6a8);
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
     margin: 0;
 }
 
 .container {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    width: 500px;
+    background-color: #ffffffdd;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    width: 400px;
     text-align: center;
 }
 
 h1 {
     color: #2d6a4f;
+    margin-bottom: 10px;
 }
 
-.timeline {
+p {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.game-board {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.etapa {
-    width: 350px;
-}
-
-.etapa img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin: 15px 0;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 20px;
 }
 
 button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #40916c;
-    color: white;
-    cursor: pointer;
+    padding: 12px;
     font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
-button:hover {
+.acao {
+    background-color: #40916c;
+    color: white;
+}
+
+.acao:hover {
     background-color: #2d6a4f;
+    transform: scale(1.05);
+}
+
+#reiniciar {
+    background-color: #ff595e;
+    color: white;
+    width: 100%;
+}
+
+#reiniciar:hover {
+    background-color: #d90429;
+}
+
+#resultado {
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 8px;
 }
