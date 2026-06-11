@@ -1,29 +1,49 @@
-let pontos = 0;
+const etapas = [
+    {
+        titulo: "Plantio",
+        descricao: "Preparação do solo e plantio de sementes de forma sustentável.",
+        imagem: "imagens/plantio.jpg"
+    },
+    {
+        titulo: "Irrigação",
+        descricao: "Uso de irrigação eficiente para economizar água e nutrir as plantas.",
+        imagem: "imagens/irrigacao.jpg"
+    },
+    {
+        titulo: "Colheita",
+        descricao: "Colheita cuidadosa para manter a qualidade e reduzir desperdício.",
+        imagem: "imagens/colheita.jpg"
+    },
+    {
+        titulo: "Compostagem",
+        descricao: "Transformação de resíduos em adubo orgânico para o solo.",
+        imagem: "imagens/compostagem.jpg"
+    }
+];
 
-const botoes = document.querySelectorAll('.acao');
-const resultado = document.getElementById('resultado');
-const reiniciar = document.getElementById('reiniciar');
+let indice = 0;
 
-botoes.forEach(botao => {
-    botao.addEventListener('click', () => {
-        const valor = parseInt(botao.getAttribute('data-points'));
-        pontos += valor;
+const tituloEl = document.getElementById("titulo");
+const descricaoEl = document.getElementById("descricao");
+const imagemEl = document.getElementById("imagem");
+const prevBtn = document.getElementById("prev");
+const nextBtn = document.getElementById("next");
 
-        if (pontos < 0) pontos = 0;
+function mostrarEtapa(i) {
+    tituloEl.textContent = etapas[i].titulo;
+    descricaoEl.textContent = etapas[i].descricao;
+    imagemEl.src = etapas[i].imagem;
+}
 
-        resultado.textContent = `Pontuação: ${pontos}`;
-
-        if (pontos >= 30) {
-            resultado.textContent = `🎉 Produção Sustentável! Pontos: ${pontos}`;
-        } else if (pontos >= 15) {
-            resultado.textContent = `🙂 Produção Razoável. Pontos: ${pontos}`;
-        } else {
-            resultado.textContent = `⚠️ Alto impacto ambiental. Pontos: ${pontos}`;
-        }
-    });
+prevBtn.addEventListener("click", () => {
+    indice = (indice - 1 + etapas.length) % etapas.length;
+    mostrarEtapa(indice);
 });
 
-reiniciar.addEventListener('click', () => {
-    pontos = 0;
-    resultado.textContent = '';
+nextBtn.addEventListener("click", () => {
+    indice = (indice + 1) % etapas.length;
+    mostrarEtapa(indice);
 });
+
+// Inicializa
+mostrarEtapa(indice);

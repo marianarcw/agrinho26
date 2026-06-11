@@ -2,22 +2,23 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Salve a Fazenda Sustentável</title>
+    <title>Linha do Tempo Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Salve a Fazenda Sustentável 🌱</h1>
-        <p>Clique nas práticas sustentáveis e evite prejudicar o meio ambiente!</p>
+        <h1>Linha do Tempo de Produção Sustentável 🌱</h1>
+        <div class="timeline">
+            <button id="prev">⬅ Anterior</button>
 
-        <div class="game-board">
-            <button class="acao" data-points="10">💧 Irrigação inteligente</button>
-            <button class="acao" data-points="10">🌳 Plantio de árvores</button>
-            <button class="acao" data-points="-10">🧪 Excesso de agrotóxicos</button>
+            <div class="etapa">
+                <h2 id="titulo">Plantio</h2>
+                <img id="imagem" src="imagens/plantio.jpg" alt="Plantio">
+                <p id="descricao">Preparação do solo e plantio de sementes de forma sustentável.</p>
+            </div>
+
+            <button id="next">Próxima ➡</button>
         </div>
-
-        <div id="resultado"></div>
-        <button id="reiniciar">Reiniciar Jogo</button>
     </div>
 
     <script src="script.js"></script>

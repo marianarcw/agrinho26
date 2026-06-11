@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -12,51 +12,42 @@ body {
     background-color: #fff;
     padding: 25px;
     border-radius: 10px;
-    text-align: center;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    width: 350px;
+    width: 500px;
+    text-align: center;
 }
 
 h1 {
     color: #2d6a4f;
 }
 
-.game-board {
-    margin: 20px 0;
+.timeline {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.etapa {
+    width: 350px;
+}
+
+.etapa img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 15px 0;
 }
 
 button {
-    padding: 10px;
+    padding: 10px 15px;
     border: none;
     border-radius: 5px;
+    background-color: #40916c;
+    color: white;
     cursor: pointer;
     font-size: 16px;
 }
 
-.acao {
-    background-color: #40916c;
-    color: white;
-}
-
-.acao:hover {
+button:hover {
     background-color: #2d6a4f;
-}
-
-#resultado {
-    margin-top: 15px;
-    font-weight: bold;
-    font-size: 18px;
-}
-
-#reiniciar {
-    margin-top: 15px;
-    background-color: #ff595e;
-    color: white;
-}
-
-#reiniciar:hover {
-    background-color: #d90429;
 }
