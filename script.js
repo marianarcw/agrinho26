@@ -1,37 +1,34 @@
-let pontos = 0;
-
-const botoes = document.querySelectorAll('.acao');
+const formulario = document.getElementById('formulario');
 const resultado = document.getElementById('resultado');
-const reiniciar = document.getElementById('reiniciar');
 
-function atualizarResultado() {
-    resultado.textContent = `Pontuação: ${pontos}`;
-    
-    if (pontos >= 20) {
-        resultado.style.backgroundColor = "#a8e6a8"; // verde
-        resultado.textContent += " 🎉 Produção Sustentável!";
-    } else if (pontos >= 10) {
-        resultado.style.backgroundColor = "#fff3b0"; // amarelo
-        resultado.textContent += " 🙂 Produção Razoável";
-    } else if (pontos > 0) {
-        resultado.style.backgroundColor = "#ffc1c1"; // vermelho claro
-        resultado.textContent += " ⚠️ Sustentabilidade Baixa";
+formulario.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const agua = parseFloat(document.getElementById('agua').value);
+    const fertilizantes = parseFloat(document.getElementById('fertilizantes').value);
+    const defensivos = parseFloat(document.getElementById('defensivos').value);
+
+    // Índice simples: 100 - (peso dos insumos)
+    let indice = 100 - (agua*0.3 + fertilizantes*0.4 + defensivos*0.3);
+
+    if (indice < 0) indice = 0;
+    if (indice > 100) indice = 100;
+    indice = indice.toFixed(1);
+
+    let mensagem = '';
+    let cor = '';
+
+    if (indice >= 70) {
+        mensagem = 'Excelente! Práticas sustentáveis.';
+        cor = '#a8e6a8'; // verde
+    } else if (indice >= 40) {
+        mensagem = 'Médio. Pode melhorar a sustentabilidade.';
+        cor = '#fff3b0'; // amarelo
     } else {
-        resultado.style.backgroundColor = "#ffc1c1";
-        resultado.textContent = "Pontuação: 0";
+        mensagem = 'Alerta! Alto impacto ambiental.';
+        cor = '#ffc1c1'; // vermelho
     }
-}
 
-botoes.forEach(botao => {
-    botao.addEventListener('click', () => {
-        const valor = parseInt(botao.getAttribute('data-points'));
-        pontos += valor;
-        if (pontos < 0) pontos = 0;
-        atualizarResultado();
-    });
-});
-
-reiniciar.addEventListener('click', () => {
-    pontos = 0;
-    atualizarResultado();
+    resultado.textContent = `Índice de Sustentabilidade: ${indice}/100 - ${mensagem}`;
+    resultado.style.backgroundColor = cor;
 });

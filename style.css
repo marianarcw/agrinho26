@@ -4,7 +4,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -23,50 +23,45 @@ h1 {
 }
 
 p {
-    color: #333;
     margin-bottom: 20px;
+    color: #333;
 }
 
-.game-board {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
+label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
 button {
-    padding: 12px;
-    font-size: 16px;
-    border-radius: 8px;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #40916c;
+    color: white;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
     transition: 0.3s;
 }
 
-.acao {
-    background-color: #40916c;
-    color: white;
-}
-
-.acao:hover {
+button:hover {
     background-color: #2d6a4f;
     transform: scale(1.05);
 }
 
-#reiniciar {
-    background-color: #ff595e;
-    color: white;
-    width: 100%;
-}
-
-#reiniciar:hover {
-    background-color: #d90429;
-}
-
 #resultado {
-    margin: 15px 0;
-    font-weight: bold;
-    font-size: 18px;
+    margin-top: 20px;
     padding: 10px;
+    font-weight: bold;
     border-radius: 8px;
+    font-size: 18px;
 }
